@@ -10,6 +10,20 @@
         font-size: 250%;
         font-weight: bold
       }
+      .NFLCost__main {
+
+      }
+
+      .NFLCost__inputs {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .NFLCost__input__label {
+        width: 180px;
+        display: inline-block;
+      }
+
       .NFLCost__input__wrapper {
         /* display: flex; */
       }
@@ -17,46 +31,54 @@
   </head>
   <body>
     <h1>NFL Cost Calculator</h1>
-    <div class="NFLCost__input__wrapper">
-     <label>DirecTV purchase</label>
-     <input
-      class="NFLCost__input"
-      id="direcTV"
-      type="number"
-      />
-     </div>
-    <div class="NFLCost__input__wrapper">
-     <label>National TV purchase</label>
-     <input
-      class="NFLCost__input"
-      id="nationalTv"
-      type="number"
-      />
-     </div>
-    <div class="NFLCost__input__wrapper">
-     <label>Bar patronage</label>
-     <input
-      class="NFLCost__input"
-      id="barPatronage"
-      type="number"
-      />
-     </div>
-    <div class="NFLCost__input__wrapper">
-     <label>Merchandise</label>
-     <input
-      class="NFLCost__input"
-      id="merchandise"
-      type="number"
-      />
-     </div>
-    <div class="NFLCost__input__wrapper">
-     <label>Ticket sales</label>
-     <input
-      class="NFLCost__input"
-      id="ticketSales"
-      type="number"
-      />
-     </div>
+    <div class="NFLCost__main">
+      <div class="NFLCost__inputs">
+        <div class="NFLCost__input__wrapper">
+        <label class="NFLCost__input__label">DirecTV purchase</label>
+        <input
+          class="NFLCost__input"
+          id="direcTV"
+          type="number"
+          />
+        </div>
+        <div class="NFLCost__input__wrapper">
+        <label class="NFLCost__input__label">National TV purchase</label>
+        <input
+          class="NFLCost__input"
+          id="nationalTv"
+          type="number"
+          />
+        </div>
+        <div class="NFLCost__input__wrapper">
+        <label class="NFLCost__input__label">Bar patronage</label>
+        <input
+          class="NFLCost__input"
+          id="barPatronage"
+          type="number"
+          />
+        </div>
+        <div class="NFLCost__input__wrapper">
+        <label class="NFLCost__input__label">Merchandise</label>
+        <input
+          class="NFLCost__input"
+          id="merchandise"
+          type="number"
+          />
+        </div>
+        <div class="NFLCost__input__wrapper">
+        <label class="NFLCost__input__label">Ticket sales</label>
+        <input
+          class="NFLCost__input"
+          id="ticketSales"
+          type="number"
+          />
+        </div>
+      </div>
+      <div class="NFLCost__display">
+        This is where the data is displayed
+        <input id="result" type="number" disabled />
+      </div>
+    </div>
 
      <script src="./calculator.js"></script>
   </body>
