@@ -3,7 +3,7 @@
     <style>
       body {
         background-color: #efdaf2;
-        font-family: 'Verdana';
+        font-family: 'helvetica';
       }
 
       h {
@@ -27,6 +27,10 @@
       .NFLCost__input__wrapper {
         /* display: flex; */
       }
+      .NFLCost_calculation {
+        color: gray;
+        font-weight: 200;
+      }
     </style>
   </head>
   <body>
@@ -40,6 +44,10 @@
           id="direcTV"
           type="number"
           />
+          <label
+            id="direcTVResult"
+            class="NFLCost_calculation">
+          </label>
         </div>
         <div class="NFLCost__input__wrapper">
         <label class="NFLCost__input__label">National TV purchase</label>
@@ -48,6 +56,10 @@
           id="nationalTv"
           type="number"
           />
+          <label
+            id="nationalTvResult"
+            class="NFLCost_calculation">
+          </label>
         </div>
         <div class="NFLCost__input__wrapper">
         <label class="NFLCost__input__label">Bar patronage</label>
@@ -56,6 +68,10 @@
           id="barPatronage"
           type="number"
           />
+          <label
+            id="barPatronageResult"
+            class="NFLCost_calculation">
+          </label>
         </div>
         <div class="NFLCost__input__wrapper">
         <label class="NFLCost__input__label">Merchandise</label>
@@ -64,6 +80,10 @@
           id="merchandise"
           type="number"
           />
+          <label
+            id="merchandiseResult"
+            class="NFLCost_calculation">
+          </label>
         </div>
         <div class="NFLCost__input__wrapper">
         <label class="NFLCost__input__label">Ticket sales</label>
@@ -72,14 +92,19 @@
           id="ticketSales"
           type="number"
           />
+          <label
+            id="ticketSalesResult"
+            class="NFLCost_calculation">
+          </label>
         </div>
       </div>
-      <div class="NFLCost__display">
-        This is where the data is displayed
-        <input id="result" type="number" disabled />
+      <div>
+        Results:
+        <span id="result"></span>
+      </div>
       </div>
     </div>
-
+    <script src="https://d3js.org/d3.v5.min.js"></script>
      <script src="./calculator.js"></script>
   </body>
 </html>
