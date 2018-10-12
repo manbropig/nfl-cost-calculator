@@ -1,5 +1,6 @@
 (function () {
-  var inputs;
+  let inputs;
+  let barEnter;
   const direcTVCalc = (value) => Number(value) * 500;
   const nationalTvCalc = (value) => Number(value) * 60;
   const barPatronageCalc = (value) => Number(value) * 100;
@@ -16,11 +17,13 @@
   };
 
   const calculateAllInputs = () => {
-    var sum = 0;
+    const data = [];
+    let sum = 0;
     inputs.forEach((input) => {
       var calculationObj = calculationsMap[input.id];
       var result = calculationObj.calcFn(input.value);
       var destination = document.querySelector('#' + calculationObj.targetId);
+      data.push(result);
       sum += result;
       // this is a ternary: meaning if the first expression after the "=" is "truthy"
       // the first value after the "?" is assigned, otherwise the value after the ":"
@@ -28,12 +31,25 @@
       destination.innerHTML = result === 0 ? '' : result;
     });
 
-    return sum;
+    return { sum, data };
   };
 
   function updateDisplay(value) {
     document.querySelector('#result').innerHTML = value;
   };
+
+  const updateChart = (data) => {
+    const chart = d3.select('.barChart');
+    const bar = chart.selectAll('div');
+    const barUpdate = bar.data(data);
+    if (!barEnter) {
+      barEnter = barUpdate.enter().append('div');
+    }
+
+    barEnter.style('width', (d) => `${d / 10}px`);
+    barEnter.attr('class', 'barChartBar');
+    barEnter.text(d => `$${d}`);
+  }
 
   function init() {
     // collect all of the inputs
@@ -41,8 +57,9 @@
 
     inputs.forEach(function (input) {
       input.addEventListener('keyup', function (event) {
-        var sum = calculateAllInputs();
+        const { sum, data } = calculateAllInputs();
         updateDisplay(sum);
+        updateChart(data);
       });
     });
   }

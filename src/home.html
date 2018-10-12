@@ -2,18 +2,14 @@
   <head>
     <style>
       body {
-        background-color: #efdaf2;
         font-family: 'helvetica';
+        color: brown
       }
 
       h {
         font-size: 250%;
         font-weight: bold
       }
-      .NFLCost__main {
-
-      }
-
       .NFLCost__inputs {
         display: flex;
         flex-direction: column;
@@ -30,6 +26,19 @@
       .NFLCost_calculation {
         color: gray;
         font-weight: 200;
+      }
+      .barChart div {
+
+      }
+
+      .barChartBar {
+        font: 10px sans-serif;
+        background-image: url('../assets/turf.png');
+        text-align: right;
+        padding: 3px;
+        margin: 1px;
+        color: white;
+        transition: width 200ms;
       }
     </style>
   </head>
@@ -102,9 +111,11 @@
         Results:
         <span id="result"></span>
       </div>
-      </div>
     </div>
+
+    <div class="barChart"></div>
+
     <script src="https://d3js.org/d3.v5.min.js"></script>
-     <script src="./calculator.js"></script>
+    <script src="./calculator.js"></script>
   </body>
 </html>
