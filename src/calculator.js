@@ -1,4 +1,5 @@
 (function () {
+  let randomizerButton;
   let inputs;
   let barEnter;
   const direcTVCalc = (value) => Number(value) * 500;
@@ -51,17 +52,32 @@
     barEnter.text(d => `$${d}`);
   }
 
+  let interval;
+  function randomize() {
+    if (interval) {
+      clearInterval(interval);
+      interval = false;
+    } else {
+      interval = setInterval(() => {
+        document.querySelectorAll('.NFLCost__input').forEach(input => {
+          input.value = Math.floor(Math.random() * 70);
+        });
+      }, 250);
+    }
+  }
+
   function init() {
     // collect all of the inputs
     inputs = document.querySelectorAll('.NFLCost__input');
 
     inputs.forEach(function (input) {
-      input.addEventListener('keyup', function (event) {
+      input.addEventListener('input', function () {
         const { sum, data } = calculateAllInputs();
         updateDisplay(sum);
         updateChart(data);
       });
     });
+    document.querySelector('#randomizer').addEventListener('click', randomize);
   }
 
   init();
